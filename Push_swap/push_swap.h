@@ -13,15 +13,21 @@
 #ifndef PUSH_SWAP
 # define PUSH_SWAP
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <limits.h>
+
 typedef struct s_node
 {
-    int value:
+    int value;
     struct s_node   *next;
 }   t_node;
 
-char    *ft_putstr(char *str, char c);
-char	**ft_split(char const *s, char c);
-int num_size(char *str, c);
-int	count_nums(char const *s, char c);
+long    ft_atol(char **str);
+int check_argv(char **argv, t_node **stack_a);
+int main(int argc, char *argv[]);
+int check_dup(t_node **stack_a);
+void    free_list(t_node **root);
 
 #endif

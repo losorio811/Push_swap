@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	count_nums(char const *s, char c)
+int	count_nums(char *s, char c)
 {
 	int	count;
 	int	i;
@@ -36,7 +36,7 @@ int	count_nums(char const *s, char c)
 	}
 	return (count);
 }
-int num_size(char *str, c)
+int num_size(char *str, char c)
 {
     int i;
 
@@ -62,16 +62,13 @@ char    *ft_putstr(char *str, char c)
     return (ptr);
 }
 
-char	**ft_split(char const *str, char c)
+char	**ft_split(char *str, char c)
 {
 	char	**ptr;
 	int		i;
-	int		start;
 	int		j;
 
-	if (!s)
-		return (NULL);
-	ptr = (char **)malloc(count_nums(str, c) + 1);
+	ptr = (char **)malloc(sizeof(char *) * (count_nums(str, c) + 1));
 	if (!ptr)
 		return (NULL);
 	i = 0;
@@ -83,9 +80,10 @@ char	**ft_split(char const *str, char c)
 		if (str[i])
 		{
             ptr[j++] = ft_putstr(&str[i], c);
+        	while (str[i] && str[i] != c)
+            	i++;
 		}
-        while (str[i] != c)
-            i++;
 	}
+	ptr[j] = 0;
 	return (ptr);
 }

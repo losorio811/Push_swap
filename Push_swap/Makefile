@@ -10,20 +10,20 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 CC = cc
 CFLAGS = -Werror -Wextra -Wall
-SRC = split.c
+SRC = operations.c main.c
 
 OBJ = $(SRC:.c=.o)
 all: $(NAME)
 $(NAME): $(OBJ)
-		ar -rcs $(NAME) $(OBJ)
+		$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 clean:
 		@echo "\nRemoving objects:"
 		rm -f $(OBJ)
 fclean: clean
-		@echo "\nRemoving push_swap.a:"
+		@echo "\nRemoving push_swap:"
 		rm -f $(NAME)
 re: fclean all
 .PHONY: all clean fclean re
