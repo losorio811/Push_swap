@@ -6,7 +6,7 @@
 /*   By: loosorio <loosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:05:30 by loosorio          #+#    #+#             */
-/*   Updated: 2024/02/23 18:04:13 by loosorio         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:44:37 by loosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,9 @@ int check_argv(char **argv, t_node **stack_a);
 int main(int argc, char *argv[]);
 int check_dup(t_node **stack_a);
 void    free_list(t_node **root);
+void	swap(t_node **stack);
+void	push(t_node **stack_1, t_node **stack_2);
+void	rotate(t_node **stack);
+void	rrotate(t_node **stack);
 
 #endif
