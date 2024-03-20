@@ -6,16 +6,16 @@
 /*   By: loosorio <loosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:08:26 by loosorio          #+#    #+#             */
-/*   Updated: 2024/03/20 16:11:15 by loosorio         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:14:53 by loosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    free_list(t_node **root)
+void	free_list(t_node **root)
 {
-    t_node *curr;
-    t_node *temp;
+    t_node		*curr;
+    t_node		*temp;
 
     curr = *root;
     while(curr->next)
@@ -26,10 +26,10 @@ void    free_list(t_node **root)
     }
     free(curr);
 }
-int check_dup(t_node **stack_a)
+int	check_dup(t_node **stack_a)
 {
-    t_node *curr;
-    t_node *temp;
+    t_node	*curr;
+    t_node	*temp;
 
     curr = *stack_a;
     while (curr->next)
@@ -49,10 +49,10 @@ int check_dup(t_node **stack_a)
     return (1);
 }
 
-void    stack_init(t_node **stack_a, long res)
+void	stack_init(t_node **stack_a, long res)
 {
-    t_node *temp;
-    t_node *new_node = (t_node *)malloc(sizeof(t_node));
+    t_node	*temp;
+    t_node	*new_node = (t_node *)malloc(sizeof(t_node));
     new_node->next = NULL;
     new_node->value = res;
     temp = *stack_a;
@@ -67,10 +67,10 @@ void    stack_init(t_node **stack_a, long res)
     temp = *stack_a;
 }
 
-long    ft_atol(char **str)
+long	ft_atol(char **str)
 {
-    long    sign;
-    long    res;
+    long	sign;
+    long	res;
     
     while (**str == ' ')
         (*str)++;
@@ -92,10 +92,10 @@ long    ft_atol(char **str)
     return (res * sign);
 }
 
-int check_argv(char **argv, t_node **stack_a)
+int	check_argv(char **argv, t_node **stack_a)
 {
-    int i;
-    long    res;
+    int		i;
+    long	res;
 
     i = 0;
     
@@ -113,9 +113,9 @@ int check_argv(char **argv, t_node **stack_a)
     return (1);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-    t_node  *stack_a;
+    t_node	*stack_a;
     //t_node  *stack_b;
 
     stack_a = NULL;
