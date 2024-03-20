@@ -6,7 +6,7 @@
 /*   By: loosorio <loosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:05:30 by loosorio          #+#    #+#             */
-/*   Updated: 2024/03/12 18:44:37 by loosorio         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:16:54 by loosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,10 @@ void	swap(t_node **stack);
 void	push(t_node **stack_1, t_node **stack_2);
 void	rotate(t_node **stack);
 void	rrotate(t_node **stack);
+void	sa(t_node **stack_a);
+void	sb(t_node **stack_b);
+void	ss(t_node **stack_a, t_node **stack_b);
+void	pa(t_node **stack_a, t_node **stack_b);
+void	pb(t_node **stack_a, t_node **stack_b);
 
 #endif
