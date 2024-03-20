@@ -6,7 +6,7 @@
 /*   By: loosorio <loosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:05:30 by loosorio          #+#    #+#             */
-/*   Updated: 2024/03/20 15:16:54 by loosorio         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:01:03 by loosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,11 @@ void	sb(t_node **stack_b);
 void	ss(t_node **stack_a, t_node **stack_b);
 void	pa(t_node **stack_a, t_node **stack_b);
 void	pb(t_node **stack_a, t_node **stack_b);
+void	ra(t_node **stack_a);
+void	rb(t_node **stack_b);
+void	rr(t_node **stack_a,t_node **stack_b);
+void	rra(t_node **stack_a);
+void	rrb(t_node **stack_b);
+void	rrr(t_node **stack_a,t_node **stack_b);
 
 #endif

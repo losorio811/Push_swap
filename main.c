@@ -6,11 +6,12 @@
 /*   By: loosorio <loosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:08:26 by loosorio          #+#    #+#             */
-/*   Updated: 2024/03/12 19:00:28 by loosorio         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:11:15 by loosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 void    free_list(t_node **root)
 {
     t_node *curr;
