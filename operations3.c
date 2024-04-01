@@ -20,9 +20,9 @@ void	rb(t_node **stack_b)
 
 void	rr(t_node **stack_a,t_node **stack_b)
 {
-	ra(stack_a);
-	rb(stack_b);
-	write(1, "rr\n", 5);
+	rotate(stack_a);
+	rotate(stack_b);
+	write(1, "rr\n", 4);
 }
 
 void	rra(t_node **stack_a)

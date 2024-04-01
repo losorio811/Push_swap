@@ -25,7 +25,7 @@ void	ss(t_node **stack_a, t_node **stack_b)
 	write(1, "ss\n", 4);
 }
 
-void	pa(t_node **stack_a, t_node **stack_b)
+void	pa(t_node **stack_b, t_node **stack_a)
 {
 	push(stack_b, stack_a);
 	write(1, "pa\n", 4);

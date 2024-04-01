@@ -26,103 +26,69 @@ void	free_list(t_node **root)
     }
     free(curr);
 }
-int	check_dup(t_node **stack_a)
+
+void    push_swap(t_node **stack_a, t_node **stack_b)
 {
-    t_node	*curr;
-    t_node	*temp;
+    t_node  *smallest;
+    int len_a;
 
-    curr = *stack_a;
-    while (curr->next)
+    len_a = stack_len(*stack_a);
+    if (len_a == 5)
+        sort_five(stack_a, stack_b);
+    else
     {
-        temp = curr->next;
-        while (temp)
-        {
-            if (curr->value == temp->value)
-            {
-                free_list(stack_a);
-                return(0);
-            }
-            temp = temp->next;
-        }
-        curr = curr->next;
+        while (len_a-- > 3)
+            pb(stack_a, stack_b);
     }
-    return (1);
-}
-
-void	stack_init(t_node **stack_a, long res)
-{
-    t_node	*temp;
-    t_node	*new_node = (t_node *)malloc(sizeof(t_node));
-    new_node->next = NULL;
-    new_node->value = res;
-    temp = *stack_a;
-    if (!*stack_a)
+    sort_three(stack_a);
+    while (*stack_b)
     {
-        (*stack_a) = new_node;
-        return ;
+        init_node(*stack_a, *stack_b);
+        move_nodes(stack_a, stack_b);
+        printf("%i\n", 10);
     }
-    while (temp->next)
-        temp = temp->next;
-    temp->next = new_node;
-    temp = *stack_a;
-}
-
-long	ft_atol(char **str)
-{
-    long	sign;
-    long	res;
-    
-    while (**str == ' ')
-        (*str)++;
-    sign = (**str != '-') - (**str == '-');
-    if (**str == '-' || **str == '+')
-        (*str)++;
-    res = 0;
-    while (**str >= '0' && **str <= '9')
+    set_current_pos(*stack_a);
+    smallest = find_smallest_node(*stack_a);
+    if (smallest->above_median)
     {
-        res = res * 10 + **str - '0';
-        if ((res * sign) < INT_MIN || (res * sign) > INT_MAX)
-        {
-            write(2, "Error\n", 7);
-            exit(0);
-        }
-        (*str)++;
+        while (*stack_a != smallest)
+            ra(stack_a);
     }
-    
-    return (res * sign);
-}
-
-int	check_argv(char **argv, t_node **stack_a)
-{
-    int		i;
-    long	res;
-
-    i = 0;
-    
-    while (argv[i])
+    else
     {
-        res = ft_atol(&argv[i]);
-        if(*argv[i] != ' ' && *argv[i])
-            return (0);
-        if (*argv[i] == '\0') 
-            i++;
-        stack_init(stack_a, res);
+        while (*stack_a != smallest)
+            rra(stack_a);
     }
-    if(!(check_dup(stack_a)))
-        return (0);
-    return (1);
 }
 
 int	main(int argc, char *argv[])
 {
     t_node	*stack_a;
-    //t_node  *stack_b;
+    t_node  *stack_b;
 
     stack_a = NULL;
-    //stack_b = NULL;
+    stack_b = NULL;
     if (argc < 2)
         return (-1);
     if (!(check_argv(&argv[1], &stack_a)))
+    {
         write(2, "Error\n", 7);
-    return (0);
+        return (0);
+    }
+    if (!stack_sorted(stack_a))
+    {
+        if (stack_len(stack_a) == 2)
+            sa(&stack_a);
+        else if (stack_len(stack_a) == 3)
+            sort_three(&stack_a);
+        else
+            push_swap(&stack_a, &stack_b);
+    }
+    while (stack_a->next != NULL)
+    {
+        printf("%i\n", stack_a->value);
+        stack_a = stack_a->next;
+    }
+    printf("%i\n", stack_a->value);
+    free_list(&stack_a);
 }

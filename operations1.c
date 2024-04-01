@@ -23,16 +23,16 @@ void	swap(t_node **stack)
 	(*stack)->next->value = temp;
 }
 
-void	push(t_node **stack_1, t_node **stack_2)
+void	push(t_node **src, t_node **dest)
 {
 	t_node	*temp;
 
-	if (!(*stack_1))
+	if (!(*src))
 		return ;
-	temp = *stack_1;
-	*stack_1 = (*stack_1)->next;
-	temp->next = *stack_2;
-	*stack_2 = temp;
+	temp = *src;
+	*src = (*src)->next;
+	temp->next = *dest;
+	*dest = temp;
 }
 
 void	rotate(t_node **stack)
