@@ -52,12 +52,14 @@ long	ft_atol(char **str)
     if (**str == '-' || **str == '+')
         (*str)++;
     res = 0;
+    if (!(**str))
+        exit(write(2, "Error\n", 6));
     while (**str >= '0' && **str <= '9')
     {
         res = res * 10 + **str - '0';
         if ((res * sign) < INT_MIN || (res * sign) > INT_MAX)
         {
-            write(2, "Error\n", 7);
+            write(2, "Error\n", 6);
             exit(0);
         }
         (*str)++;

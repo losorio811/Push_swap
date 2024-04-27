@@ -6,7 +6,7 @@
 /*   By: loosorio <loosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:08:26 by loosorio          #+#    #+#             */
-/*   Updated: 2024/03/20 16:14:53 by loosorio         ###   ########.fr       */
+/*   Updated: 2024/04/27 17:11:44 by loosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void    push_swap(t_node **stack_a, t_node **stack_b)
     {
         init_node(*stack_a, *stack_b);
         move_nodes(stack_a, stack_b);
-        printf("%i\n", 10);
     }
     set_current_pos(*stack_a);
     smallest = find_smallest_node(*stack_a);
@@ -72,7 +71,7 @@ int	main(int argc, char *argv[])
         return (-1);
     if (!(check_argv(&argv[1], &stack_a)))
     {
-        write(2, "Error\n", 7);
+        write(2, "Error\n", 6);
         return (0);
     }
     if (!stack_sorted(stack_a))
@@ -84,11 +83,5 @@ int	main(int argc, char *argv[])
         else
             push_swap(&stack_a, &stack_b);
     }
-    while (stack_a->next != NULL)
-    {
-        printf("%i\n", stack_a->value);
-        stack_a = stack_a->next;
-    }
-    printf("%i\n", stack_a->value);
     free_list(&stack_a);
 }
