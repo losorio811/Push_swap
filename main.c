@@ -6,7 +6,7 @@
 /*   By: loosorio <loosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:08:26 by loosorio          #+#    #+#             */
-/*   Updated: 2024/04/27 17:11:44 by loosorio         ###   ########.fr       */
+/*   Updated: 2024/05/01 21:10:14 by loosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void    push_swap(t_node **stack_a, t_node **stack_b)
         sort_five(stack_a, stack_b);
     else
     {
-        while (len_a-- > 3)
+        while (len_a-- > 3 && !stack_sorted(*stack_a))
             pb(stack_a, stack_b);
     }
     sort_three(stack_a);
@@ -49,15 +49,11 @@ void    push_swap(t_node **stack_a, t_node **stack_b)
     set_current_pos(*stack_a);
     smallest = find_smallest_node(*stack_a);
     if (smallest->above_median)
-    {
         while (*stack_a != smallest)
             ra(stack_a);
-    }
     else
-    {
         while (*stack_a != smallest)
             rra(stack_a);
-    }
 }
 
 int	main(int argc, char *argv[])

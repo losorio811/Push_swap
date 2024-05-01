@@ -6,13 +6,13 @@
 #    By: loosorio <loosorio@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/23 15:04:27 by loosorio          #+#    #+#              #
-#    Updated: 2024/02/23 18:05:10 by loosorio         ###   ########.fr        #
+#    Updated: 2024/05/01 20:59:57 by loosorio         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = -Werror -Wextra -Wall -g
 SRC = operations1.c operations2.c operations3.c tiny_sort.c\
 	  main.c parcing.c push_swap_utils1.c push_swap_utils2.c\
 

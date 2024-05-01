@@ -95,4 +95,4 @@ void	init_node(t_node *stack_a, t_node *stack_b)
 	set_target_node(stack_a, stack_b);
 	set_price(stack_a, stack_b);
 	set_cheapest(stack_b);
-}
+}				
