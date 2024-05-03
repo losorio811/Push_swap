@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils2.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: loosorio <loosorio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/01 21:21:17 by loosorio          #+#    #+#             */
+/*   Updated: 2024/05/03 16:22:52 by loosorio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_node	*return_cheapest(t_node *stack)
@@ -35,17 +47,17 @@ void	finish_rotation(t_node **stack, t_node *head, char wich_stack)
 	{
 		if (wich_stack == 'a')
 		{
-			if (head->above_median)	
+			if (head->above_median)
 				ra(stack);
 			else
-				rra(stack);
+				rra(stack, 1);
 		}
 		else if (wich_stack == 'b')
 		{
 			if (head->above_median)
 				rb(stack);
 			else
-				rrb(stack);
+				rrb(stack, 1);
 		}
 	}
 }
@@ -57,7 +69,8 @@ void	move_nodes(t_node **stack_a, t_node **stack_b)
 	cheapest = return_cheapest(*stack_b);
 	if (cheapest->above_median && cheapest->target_node->above_median)
 		rotate_both(stack_a, stack_b, cheapest);
-	else if (!(cheapest->above_median) && !(cheapest->target_node->above_median))
+	else if (!(cheapest->above_median) && 
+		!(cheapest->target_node->above_median))
 		rrotate_both(stack_a, stack_b, cheapest);
 	finish_rotation(stack_b, cheapest, 'b');
 	finish_rotation(stack_a, cheapest->target_node, 'a');

@@ -6,7 +6,7 @@
 /*   By: loosorio <loosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:01:37 by loosorio          #+#    #+#             */
-/*   Updated: 2024/05/01 21:03:37 by loosorio         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:16:07 by loosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	rrotate(t_node **stack)
 	t_node	*root;
 
 	if (!(*stack) || (!(*stack)->next))
-	return ;
+		return ;
 	root = *stack;
 	while ((*stack)->next->next)
 		*(stack) = (*stack)->next;
@@ -63,8 +63,8 @@ void	rrotate(t_node **stack)
 	(*stack)->next->next = root;
 	*stack = temp->next;
 	temp->next = NULL;
-
 }
+
 void	sa(t_node **stack_a)
 {
 	swap(stack_a);

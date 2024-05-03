@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils1.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: loosorio <loosorio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/01 21:21:03 by loosorio          #+#    #+#             */
+/*   Updated: 2024/05/03 16:21:13 by loosorio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	set_current_pos(t_node *stack)
@@ -33,7 +45,8 @@ void	set_target_node(t_node *stack_a, t_node *stack_b)
 		current_a = stack_a;
 		while (current_a)
 		{
-			if (current_a->value > stack_b->value && current_a->value < best_match)
+			if (current_a->value > stack_b->value && 
+				current_a->value < best_match)
 			{
 				best_match = current_a->value;
 				target = current_a;
@@ -95,4 +108,4 @@ void	init_node(t_node *stack_a, t_node *stack_b)
 	set_target_node(stack_a, stack_b);
 	set_price(stack_a, stack_b);
 	set_cheapest(stack_b);
-}				
+}
