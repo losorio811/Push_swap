@@ -34,7 +34,7 @@ void	push_swap(t_node **stack_a, t_node **stack_b)
 
 	len_a = stack_len(*stack_a);
 	while (len_a-- > 3 && !stack_sorted(*stack_a))
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, 1);
 	sort_three(stack_a);
 	while (*stack_b)
 	{
@@ -45,7 +45,7 @@ void	push_swap(t_node **stack_a, t_node **stack_b)
 	smallest = find_smallest_node(*stack_a);
 	if (smallest->above_median)
 		while (*stack_a != smallest)
-			ra(stack_a);
+			ra(stack_a, 1);
 	else
 		while (*stack_a != smallest)
 			rra(stack_a, 1);
@@ -68,7 +68,7 @@ int	main(int argc, char *argv[])
 	if (!stack_sorted(stack_a))
 	{
 		if (stack_len(stack_a) == 2)
-			sa(&stack_a);
+			sa(&stack_a, 1);
 		else if (stack_len(stack_a) == 3)
 			sort_three(&stack_a);
 		else

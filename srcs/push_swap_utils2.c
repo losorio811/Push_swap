@@ -28,7 +28,7 @@ t_node	*return_cheapest(t_node *stack)
 void	rotate_both(t_node **stack_a, t_node **stack_b, t_node *cheapest)
 {
 	while (*stack_a != cheapest->target_node && *stack_b != cheapest)
-		rr(stack_a, stack_b);
+		rr(stack_a, stack_b, 1);
 	set_current_pos(*stack_a);
 	set_current_pos(*stack_b);
 }
@@ -36,7 +36,7 @@ void	rotate_both(t_node **stack_a, t_node **stack_b, t_node *cheapest)
 void	rrotate_both(t_node **stack_a, t_node **stack_b, t_node *cheapest)
 {
 	while (*stack_a != cheapest->target_node && *stack_b != cheapest)
-		rrr(stack_a, stack_b);
+		rrr(stack_a, stack_b, 1);
 	set_current_pos(*stack_a);
 	set_current_pos(*stack_b);
 }
@@ -48,14 +48,14 @@ void	finish_rotation(t_node **stack, t_node *head, char wich_stack)
 		if (wich_stack == 'a')
 		{
 			if (head->above_median)
-				ra(stack);
+				ra(stack, 1);
 			else
 				rra(stack, 1);
 		}
 		else if (wich_stack == 'b')
 		{
 			if (head->above_median)
-				rb(stack);
+				rb(stack, 1);
 			else
 				rrb(stack, 1);
 		}
@@ -74,5 +74,5 @@ void	move_nodes(t_node **stack_a, t_node **stack_b)
 		rrotate_both(stack_a, stack_b, cheapest);
 	finish_rotation(stack_b, cheapest, 'b');
 	finish_rotation(stack_a, cheapest->target_node, 'a');
-	pa(stack_b, stack_a);
+	pa(stack_b, stack_a, 1);
 }

@@ -65,8 +65,9 @@ void	rrotate(t_node **stack)
 	temp->next = NULL;
 }
 
-void	sa(t_node **stack_a)
+void	sa(t_node **stack_a, int flag)
 {
 	swap(stack_a);
-	write(1, "sa\n", 3);
+	if (flag)
+		write(1, "sa\n", 3);
 }

@@ -73,9 +73,9 @@ void	sort_three(t_node **stack_a)
 
 	highest_node = find_highest_node(*stack_a);
 	if (*stack_a == highest_node)
-		ra(stack_a);
+		ra(stack_a, 1);
 	else if ((*stack_a)->next == highest_node)
 		rra(stack_a, 1);
 	if ((*stack_a)->value > (*stack_a)->next->value)
-		sa(stack_a);
+		sa(stack_a, 1);
 }

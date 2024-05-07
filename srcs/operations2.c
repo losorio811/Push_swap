@@ -12,33 +12,38 @@
 
 #include "push_swap.h"
 
-void	sb(t_node **stack_b)
+void	sb(t_node **stack_b, int flag)
 {
 	swap(stack_b);
-	write(1, "sb\n", 3);
+	if (flag)
+		write(1, "sb\n", 3);
 }
 
-void	ss(t_node **stack_a, t_node **stack_b)
+void	ss(t_node **stack_a, t_node **stack_b, int flag)
 {
 	swap(stack_a);
 	swap(stack_b);
-	write(1, "ss\n", 3);
+	if (flag)
+		write(1, "ss\n", 3);
 }
 
-void	pa(t_node **stack_b, t_node **stack_a)
+void	pa(t_node **stack_b, t_node **stack_a, int flag)
 {
 	push(stack_b, stack_a);
-	write(1, "pa\n", 3);
+	if (flag)
+		write(1, "pa\n", 3);
 }
 
-void	pb(t_node **stack_a, t_node **stack_b)
+void	pb(t_node **stack_a, t_node **stack_b, int flag)
 {
 	push(stack_a, stack_b);
-	write(1, "pb\n", 3);
+	if (flag)
+		write(1, "pb\n", 3);
 }
 
-void	ra(t_node **stack_a)
+void	ra(t_node **stack_a, int flag)
 {
 	rotate(stack_a);
-	write(1, "ra\n", 3);
+	if (flag)
+		write(1, "ra\n", 3);
 }
